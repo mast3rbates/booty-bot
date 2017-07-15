@@ -11,9 +11,12 @@ class DiceRollCommand extends commando.Command{
     }
 
     async run(message, args){
+
+        //get a number from 1 - 6
         var roll = Math.floor(Math.random() * 6) + 1;
 
-        message.reply("You rolled a " + roll);
+        //send a message of the roll result
+        message.channel.send("You rolled a " + roll);
     }
 }
 

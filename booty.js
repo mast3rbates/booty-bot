@@ -18,6 +18,7 @@ client.on('ready', () => {
 //reply to user when user types poopy
 client.on('message', (message) => {
     if(message.content == 'poopy'){
-        message.reply('pants');
+        message.channel.send('pants');
+        // message.send(message.channel, 'pants');
     }
 });

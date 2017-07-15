@@ -14,11 +14,12 @@ client.on('ready', () => {
   console.log('I am ready!');
 });
 
-
-//reply to user when user types poopy
 client.on('message', (message) => {
     if(message.content == 'poopy'){
         message.channel.send('pants');
-        // message.send(message.channel, 'pants');
+    }
+
+    if(message.content == 'meme' || message.content == 'memes'){
+        message.channel.send('Oh, I love memes!');
     }
 });

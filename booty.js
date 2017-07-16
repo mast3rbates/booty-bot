@@ -51,11 +51,6 @@ client.on('message', (message) => {
     //     message.channel.send('<@151840868079370241>');
     // }
 
-    //link to mission template download
-    if(message.content == '#missiontemplate'){
-        message.channel.send('https://github.com/CookieDefender/TEST-Mission-Template/releases/');
-    }
-
     //when memes are mentioned send "I love memes"
     if(regexMeme.test(message.content)){
         message.channel.send('Oh, I love memes!');

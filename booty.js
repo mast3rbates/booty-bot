@@ -66,10 +66,10 @@ client.on('message', (message) => {
     if(regexUplay.test(message.content)){
         message.channel.send(uplayReplies[randomUreply]);
     }
-  
+
     //when origin is mentioned pick a random response from array
     var randomOreply = Math.floor(Math.random()*originReplies.length);
-    if(regexorigin.test(message.content)){
+    if(regexOrigin.test(message.content)){
         message.channel.send(originReplies[randomOreply]);
     }
 

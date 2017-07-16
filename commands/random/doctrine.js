@@ -1,7 +1,7 @@
 
 const commando = require('discord.js-commando');
 
-class RepoCommand extends commando.Command{
+class DoctrineCommand extends commando.Command{
     constructor(client) {
         super(client, {
             name: "doctrine",

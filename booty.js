@@ -11,23 +11,28 @@ client.login('MzM1MjY2MzQ1NDg5MDA2NTky.DEnQzg.q6cxlMa_1bdaerOQzHbzTbN00sQ');
 
 //ready message when bot starts
 client.on('ready', () => {
-  console.log('I am ready!');
+    console.log('I am ready!');
 });
 
 var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
-var regexorigin = /origin/ig;
+var regexOrigin = /origin/ig;
+var regexTestbot = /testbot/ig;
 
 var uplayReplies = ["Uplay is shit.",
                     "Uplay couldn't follow through making a good game even with divine intervention.",
                     "Uplay is a bottom feeding piece of shit",
                     "https://i.redditmedia.com/0uaia3fh5l3OqZ-OmzWd6UO5ZgJ-s1BtGT904qxbiwY.jpg?w=778&s=67f1fce2921045739bb2e331bbefe522",
                     "[ACTION COMPLETED]",
-                    "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?"]
-					
+                    "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?",
+                    "https://imgflip.com/i/1slctd",
+                    "https://pics.me.me/steam-origin-origin-steam-origin-uplay-13583183.png",
+                    "Uplay? More like U-DONT-Play-to-the-polls #fellowkids"
+                    ]
+
 var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405cbd4b3babef2676b3b8ee3d2e2b263738e039d.jpg",
 					"http://i3.kym-cdn.com/photos/images/original/000/705/206/d37.png"]
-					
+
 //when a message is posted
 client.on('message', (message) => {
 
@@ -61,10 +66,20 @@ client.on('message', (message) => {
     if(regexUplay.test(message.content)){
         message.channel.send(uplayReplies[randomUreply]);
     }
-
+  
     //when origin is mentioned pick a random response from array
     var randomOreply = Math.floor(Math.random()*originReplies.length);
     if(regexorigin.test(message.content)){
         message.channel.send(originReplies[randomOreply]);
+    }
+
+    //get status of testbot
+    if (regexTestbot.test(message.content)) {
+        var testbot = client.users.get("76628027752054784");
+        if (testbot.presence.status == "offline") {
+            message.channel.reply("test-bot is offline, but I'm here for you!");
+        }else if(testbot.presence.status == "online") {
+            message.channel.send("<@76628027752054784>'s status is " + testbot.presence.status);
+        }
     }
 });

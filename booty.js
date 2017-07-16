@@ -12,7 +12,6 @@ client.login('MzM1MjY2MzQ1NDg5MDA2NTky.DEnQzg.q6cxlMa_1bdaerOQzHbzTbN00sQ');
 //ready message when bot starts
 client.on('ready', () => {
   console.log('I am ready!');
-  // client.send('335862488195137537', 'booty-bot is online');
 });
 
 var regexMeme = /memes|meme/ig;

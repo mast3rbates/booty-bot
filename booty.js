@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
+var regexOrigin = /origin/ig;
 var regexTestbot = /testbot/ig;
 
 var uplayReplies = ["Uplay is shit.",
@@ -28,6 +29,9 @@ var uplayReplies = ["Uplay is shit.",
                     "https://pics.me.me/steam-origin-origin-steam-origin-uplay-13583183.png",
                     "Uplay? More like U-DONT-Play-to-the-polls #fellowkids"
                     ]
+
+var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405cbd4b3babef2676b3b8ee3d2e2b263738e039d.jpg",
+					"http://i3.kym-cdn.com/photos/images/original/000/705/206/d37.png"]
 
 //when a message is posted
 client.on('message', (message) => {
@@ -47,7 +51,7 @@ client.on('message', (message) => {
     //     message.channel.send('<@151840868079370241>');
     // }
 
-    //dunno what this is for
+    //link to framework download
     if(message.content == '#framework'){
         message.channel.send('**insert link to zeus mission download here**');
     }
@@ -62,6 +66,12 @@ client.on('message', (message) => {
     if(regexUplay.test(message.content)){
         message.channel.send(uplayReplies[randomUreply]);
     }
+  
+    //when origin is mentioned pick a random response from array
+    var randomOreply = Math.floor(Math.random()*originReplies.length);
+    if(regexorigin.test(message.content)){
+        message.channel.send(originReplies[randomOreply]);
+    }
 
     //get status of testbot
     if (regexTestbot.test(message.content)) {
@@ -72,5 +82,4 @@ client.on('message', (message) => {
             message.channel.send("<@76628027752054784>'s status is " + testbot.presence.status);
         }
     }
-
 });

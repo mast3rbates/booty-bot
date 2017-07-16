@@ -12,6 +12,7 @@ client.login('MzM1MjY2MzQ1NDg5MDA2NTky.DEnQzg.q6cxlMa_1bdaerOQzHbzTbN00sQ');
 //ready message when bot starts
 client.on('ready', () => {
   console.log('I am ready!');
+  // client.send('335862488195137537', 'booty-bot is online');
 });
 
 var regexMeme = /memes|meme/ig;
@@ -24,28 +25,35 @@ var uplayReplies = ["Uplay is shit.",
                     "[ACTION COMPLETED]",
                     "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?"]
 
+//when a message is posted
 client.on('message', (message) => {
 
+    //test ping
     if(message.content == 'poopy'){
         message.channel.send('pants');
     }
 
+    //notify smiter
     if(message.content == '@TDU'){
-        message.channel.send('@smiter');
+        message.channel.send('<@109457206126071808>');
     }
 
-    if(message.content == '@TMM'){
-        message.channel.send('@osiris');
-    }
+    //notify osiris
+    // if(message.content == '@TMM'){
+    //     message.channel.send('<@151840868079370241>');
+    // }
 
+    //dunno what this is for
     if(message.content == '#framework'){
         message.channel.send('**insert link to zeus mission download here**');
     }
-	
+
+    //when memes are mentioned send "I love memes"
     if(regexMeme.test(message.content)){
         message.channel.send('Oh, I love memes!');
     }
 
+    //when uplay is mentioned pick a random response from array
     var randomUreply = Math.floor(Math.random()*uplayReplies.length);
     if(regexUplay.test(message.content)){
         message.channel.send(uplayReplies[randomUreply]);

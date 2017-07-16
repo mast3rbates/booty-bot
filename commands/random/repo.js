@@ -13,7 +13,7 @@ class RepoCommand extends commando.Command{
     async run(message, args){
 
         //send a message of the repo
-        message.channel.send("repo stuff here");
+        message.channel.send("Repo Installation Instructions: https://docs.google.com/document/d/1sn1Zkgn-_fRUi6frMdqOPABcL1KDhtc9EG-aliOHRjY/edit?usp=sharing");
     }
 }
 

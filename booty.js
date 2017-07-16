@@ -16,6 +16,7 @@ client.on('ready', () => {
 
 var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
+var regexorigin = /origin/ig;
 
 var uplayReplies = ["Uplay is shit.",
                     "Uplay couldn't follow through making a good game even with divine intervention.",
@@ -23,7 +24,10 @@ var uplayReplies = ["Uplay is shit.",
                     "https://i.redditmedia.com/0uaia3fh5l3OqZ-OmzWd6UO5ZgJ-s1BtGT904qxbiwY.jpg?w=778&s=67f1fce2921045739bb2e331bbefe522",
                     "[ACTION COMPLETED]",
                     "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?"]
-
+					
+var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405cbd4b3babef2676b3b8ee3d2e2b263738e039d.jpg",
+					"http://i3.kym-cdn.com/photos/images/original/000/705/206/d37.png"]
+					
 //when a message is posted
 client.on('message', (message) => {
 
@@ -42,7 +46,7 @@ client.on('message', (message) => {
     //     message.channel.send('<@151840868079370241>');
     // }
 
-    //dunno what this is for
+    //link to framework download
     if(message.content == '#framework'){
         message.channel.send('**insert link to zeus mission download here**');
     }
@@ -58,4 +62,9 @@ client.on('message', (message) => {
         message.channel.send(uplayReplies[randomUreply]);
     }
 
+    //when origin is mentioned pick a random response from array
+    var randomOreply = Math.floor(Math.random()*originReplies.length);
+    if(regexorigin.test(message.content)){
+        message.channel.send(originReplies[randomOreply]);
+    }
 });

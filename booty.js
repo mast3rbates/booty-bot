@@ -22,7 +22,6 @@ var uplayReplies = ["Uplay is shit.",
                     "Uplay is a bottom feeding piece of shit",
                     "https://i.redditmedia.com/0uaia3fh5l3OqZ-OmzWd6UO5ZgJ-s1BtGT904qxbiwY.jpg?w=778&s=67f1fce2921045739bb2e331bbefe522",
                     "[ACTION COMPLETED]",
-                    "\"honhonhonhonhon\" -Uplay probably",
                     "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?"]
 
 client.on('message', (message) => {
@@ -31,6 +30,18 @@ client.on('message', (message) => {
         message.channel.send('pants');
     }
 
+    if(message.content == '@TDU'){
+        message.channel.send('@smiter');
+    }
+
+    if(message.content == '@TMM'){
+        message.channel.send('@osiris');
+    }
+
+    if(message.content == '#framework'){
+        message.channel.send('**insert link to zeus mission download here**');
+    }
+	
     if(regexMeme.test(message.content)){
         message.channel.send('Oh, I love memes!');
     }

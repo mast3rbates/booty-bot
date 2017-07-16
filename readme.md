@@ -1,4 +1,4 @@
-#BOOTY-BOT
+# BOOTY-BOT
 
 Discord bot for testing purposes.
 

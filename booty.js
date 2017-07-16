@@ -35,7 +35,6 @@ var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405c
 
 //when a message is posted
 client.on('message', (message) => {
-    const test = require('test.js');
 
     //test ping
     if(message.content == 'poopy'){
@@ -74,5 +73,13 @@ client.on('message', (message) => {
         message.channel.send(originReplies[randomOreply]);
     }
 
-
+    //get status of testbot
+    if (regexTestbot.test(message.content)) {
+        var testbot = client.users.get("76628027752054784");
+        if (testbot.presence.status == "offline") {
+            message.channel.send("test-bot is offline, but I'm here for you!");
+        }else if(testbot.presence.status == "online") {
+            message.channel.send("<@76628027752054784>'s status is " + testbot.presence.status);
+        }
+    }
 });

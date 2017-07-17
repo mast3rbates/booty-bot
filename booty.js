@@ -52,9 +52,9 @@ client.on('message', (message) => {
     // }
 
     //when memes are mentioned send "I love memes"
-    if(regexMeme.test(message.content)){
-        message.channel.send('Oh, I love memes!');
-    }
+    // if(regexMeme.test(message.content)){
+    //     message.channel.send('Oh, I love memes!');
+    // }
 
     //when uplay is mentioned pick a random response from array
     var randomUreply = Math.floor(Math.random()*uplayReplies.length);

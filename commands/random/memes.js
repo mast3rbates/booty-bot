@@ -20,16 +20,19 @@ class MemeCommand extends commando.Command{
     async run(message, args){
         const { meme } = args;
 
-        if (meme == "dank") {
-            console.log("dank meme");
-            return message.channel.send("http://img.ifcdn.com/images/de5168c952b31658eab725d09d6fd3395b1f4fa7bc2fa9ece34a91152551fea8_1.jpg");
-        }else if (meme == "spicy") {
-            console.log("spicy meme");
-            return message.channel.send("http://i0.kym-cdn.com/photos/images/original/001/227/573/20d.jpg");
-        }else{
-            console.log("no meme");
-            return message.channel.send("I don't know that meme type yet");
-        }
+        var query = meme + "-meme"
+
+        //using api key from elax102
+        var giphy = require('giphy-api')('2374dd8e7330409bb6af85eb4b8514cf');
+
+        //get a random giphy within the search query
+        giphy.random({
+            tag: query,
+            fmt: 'json'
+        }, function (err, res) {
+            //send the image url
+            return message.channel.send(res.data.url);
+        });
     }
 }
 

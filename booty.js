@@ -1,4 +1,3 @@
-// const Discord = require('discord.js');
 const commando = require('discord.js-commando');
 const client = new commando.Client();
 
@@ -49,11 +48,6 @@ client.on('message', (message) => {
     //notify osiris
     // if(message.content == '@TMM'){
     //     message.channel.send('<@151840868079370241>');
-    // }
-
-    //when memes are mentioned send "I love memes"
-    // if(regexMeme.test(message.content)){
-    //     message.channel.send('Oh, I love memes!');
     // }
 
     //when uplay is mentioned pick a random response from array

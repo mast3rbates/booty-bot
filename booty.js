@@ -1,3 +1,4 @@
+// const Discord = require('discord.js');
 const commando = require('discord.js-commando');
 const client = new commando.Client();
 
@@ -17,6 +18,7 @@ var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
 var regexOrigin = /origin/ig;
 var regexTestbot = /testbot/ig;
+var regexSmiter = /@TDU/ig;
 
 var uplayReplies = ["Uplay is shit.",
                     "Uplay couldn't follow through making a good game even with divine intervention.",
@@ -40,15 +42,30 @@ client.on('message', (message) => {
         message.channel.send('pants');
     }
 
-    //notify smiter
-    if(message.content == '@TDU'){
-        message.channel.send('<@109457206126071808>');
+    //notify smiter for TDU
+    if (regexSmiter.test(message.content)) {
+        var smiter = client.users.get("109457206126071808");
+        if (smiter.presence.status == "offline") {
+            message.channel.send("smiter is offline, you can mention him anyways with @ smiter if it's important");
+        }else if(smiter.presence.status == "online") {
+            message.channel.send("<@109457206126071808> someone wishes to discuss TDU");
+        }
     }
 
     //notify osiris
     // if(message.content == '@TMM'){
     //     message.channel.send('<@151840868079370241>');
     // }
+
+    //link to mission template download
+    if(message.content == '#missiontemplate'){
+        message.channel.send('https://github.com/CookieDefender/TEST-Mission-Template/releases/');
+    }
+
+    //when memes are mentioned send "I love memes"
+    if(regexMeme.test(message.content)){
+        message.channel.send('Oh, I love memes!');
+    }
 
     //when uplay is mentioned pick a random response from array
     var randomUreply = Math.floor(Math.random()*uplayReplies.length);

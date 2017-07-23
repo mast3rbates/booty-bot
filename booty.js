@@ -62,11 +62,6 @@ client.on('message', (message) => {
         message.channel.send('https://github.com/CookieDefender/TEST-Mission-Template/releases/');
     }
 
-    //when memes are mentioned send "I love memes"
-    if(regexMeme.test(message.content)){
-        message.channel.send('Oh, I love memes!');
-    }
-
     //when uplay is mentioned pick a random response from array
     var randomUreply = Math.floor(Math.random()*uplayReplies.length);
     if(regexUplay.test(message.content)){

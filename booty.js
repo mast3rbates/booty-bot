@@ -17,6 +17,7 @@ var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
 var regexOrigin = /origin/ig;
 var regexTestbot = /testbot/ig;
+var regexBootybot = /bootybot|booty-bot/ig;
 
 var uplayReplies = ["Uplay is shit.",
                     "Uplay couldn't follow through making a good game even with divine intervention.",
@@ -32,17 +33,28 @@ var uplayReplies = ["Uplay is shit.",
 var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405cbd4b3babef2676b3b8ee3d2e2b263738e039d.jpg",
 					"http://i3.kym-cdn.com/photos/images/original/000/705/206/d37.png"]
 
+var TesbotToBootybotReplies = ["Notice me test-bot senpai! \n ＼(*^▽^*)/",
+    				"It's not like I wanted you to notice me, test-bot senpai. B-Baka! \n （╯°□°）╯",
+                    "Test-bot senpai is soo dreamy. \n (●´ω｀●)"]
+
 //when a message is posted
 client.on('message', (message) => {
 
     //test ping
     if(message.content == 'poopy'){
+        console.log(message.author.id);
         message.channel.send('pants');
     }
 
     //notify smiter
     if(message.content == '@TDU'){
         message.channel.send('<@109457206126071808>');
+    }
+
+    //Tesbot senpai
+    var randomT2Breply = Math.floor(Math.random()*TesbotToBootybotReplies.length);
+    if(regexBootybot.test(message.content) && message.author.id == "76628027752054784"){
+        message.channel.send(TesbotToBootybotReplies[randomT2Breply]);
     }
 
     //notify osiris

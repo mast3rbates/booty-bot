@@ -4,6 +4,7 @@ const client = new commando.Client();
 const music = require('discord.js-music-v11');
 music(client, {
 	prefix: '-',        // Prefix of '-'.
+    anyoneCanSkip: true,
 	channel: 'General'    // Name of voice channel to join. If omitted, will instead join user's voice channel.
 });
 

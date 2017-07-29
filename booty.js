@@ -1,8 +1,14 @@
 // const Discord = require('discord.js');
 const commando = require('discord.js-commando');
 const client = new commando.Client();
+const music = require('discord.js-music-v11');
+music(client, {
+	prefix: '-',        // Prefix of '-'.
+	channel: 'General'    // Name of voice channel to join. If omitted, will instead join user's voice channel.
+});
 
 client.registry.registerGroup('random', 'Random stuff');
+client.registry.registerGroup('music', 'A basic music manager.');
 client.registry.registerDefaults();
 client.registry.registerCommandsIn(__dirname + "/commands");
 

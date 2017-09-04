@@ -1,6 +1,8 @@
 // const Discord = require('discord.js');
 const commando = require('discord.js-commando');
-const client = new commando.Client();
+const client = new commando.Client({
+	commandPrefix: '~'
+});
 const music = require('discord.js-music-v11');
 music(client, {
 	prefix: '-',        // Prefix of '-'.
@@ -18,11 +20,12 @@ client.login('MzM1MjY2MzQ1NDg5MDA2NTky.DEnQzg.q6cxlMa_1bdaerOQzHbzTbN00sQ');
 //ready message when bot starts
 client.on('ready', () => {
     console.log('I am ready!');
+	// client.channels.get('335862488195137537').sendMessage('elax102 is my waifu');
 });
 
 var regexMeme = /memes|meme/ig;
 var regexUplay = /uplay/ig;
-var regexOrigin = /origin/ig;
+var regexOrigin = /origin /ig;
 var regexTestbot = /testbot/ig;
 var regexBootybot = /bootybot|booty-bot/ig;
 var regexSmiter = /@TDU/ig;

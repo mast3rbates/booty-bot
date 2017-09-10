@@ -38,7 +38,8 @@ var uplayReplies = ["Uplay is shit.",
                     "You are not connected to the Ubisoft servers right now, would you like to reconnect to continue discussing Uplay?",
                     "https://imgflip.com/i/1slctd",
                     "https://pics.me.me/steam-origin-origin-steam-origin-uplay-13583183.png",
-                    "Uplay? More like U-DONT-Play-to-the-polls #fellowkids"
+                    "Uplay? More like U-DONT-Play-to-the-polls #fellowkids",
+		    "https://i.imgur.com/4vkqpYf.jpg"
                     ]
 
 var originReplies = ["http://s2.quickmeme.com/img/72/72560c82cc79ac0bf47f182405cbd4b3babef2676b3b8ee3d2e2b263738e039d.jpg",
